@@ -1,0 +1,97 @@
+@name ptgamma/engines/EE_16SVT_Mk2
+#ENGINE CONFIG
+ENG_Version = "2.0.67"
+#Turbocharged 16-cylinder EE V series engine. Used in British Class 40 and Zimbabwean/Rhodesian Class DE2.
+EngineType = "English Electric 16SVT Mark 2" #What is the name of the Prime Mover?
+
+Startup_Hi = "kei/trains/engines/ee_16svt_mk2/startup.wav" #Startup Sound to put the engine in High (Normal) Idle.
+Startup_Lo = "" #Startup Sound to put the engine in Low Idle.
+Startup_Mode = 1 #0 for Low, 1 for High
+
+Shutdown_Hi = "kei/trains/engines/ee_16svt_mk2/shutdown.wav" #Shutdown Sound from High Idle.
+Shutdown_Lo = "" #Shutdown Sound from Low Idle.
+Shutdown_Mode = 1 #0 for Low, 1 for High, 2 for Both as the situation demands it
+
+FuelSaverMode = 0 #If set to 1, the locomotive will go into and out of Low Idle as the reverser is moved in and out of Neutral
+FuelSaverDelay = 0 #Time, in seconds, for engine to fall into Low Idle, if used.
+
+TransitionToLow = "" #Transition sound for High to Low idle, if used.
+TransitionToHigh = "" #Transition sound for Low to High idle, if used.
+Idle_Low = "" #Sound for Low Idle, if used.
+
+
+NumEngineNotches = 8 #Number of Engine Notches, not counting idle.
+
+Notches = array(
+    "kei/trains/engines/ee_16svt_mk2/idle.wav", #Idle 
+    "kei/trains/engines/ee_16svt_mk2/notch1.wav", #Notch 1
+    "kei/trains/engines/ee_16svt_mk2/notch2.wav", #Notch 2
+    "kei/trains/engines/ee_16svt_mk2/notch3.wav" #Notch 3
+)
+
+TransitionPath = "kei/trains/engines/ee_16svt_mk2/transitions/"
+#---------------------0-1,1-2,2-3,3-4,4-5,5-6,6-7,7-8
+EngineBehavior = array(0,  0,  0)
+#0 - A/B Notching
+#1 - Full Sweep
+#2 - Instant Change
+#3 - No Change
+#4 - Override (Full Sweep)
+                #0-1  1-2  2-3
+UpDelays = array(380,1308,3613) 
+                  #3-2  2-1  1-0
+DownDelays = array(1834,9479,5276)
+
+UpOverrides = array(
+    "", #0-1
+    "", #1-2
+    "", #2-3
+    "", #3-4
+    "", #4-5
+    "", #5-6
+    "", #6-7
+    ""  #7-8
+)
+
+DownOverrides = array(
+    "", #8-7
+    "", #7-6
+    "", #6-5
+    "", #5-4
+    "", #4-3
+    "", #3-2
+    "", #2-1
+    ""  #1-0
+)
+
+StartupClagDelay = 2.7 #Time required to hold starter for engine to turn on successfully
+StartupClagDuration = 1.25 #Duration for starter smoke
+
+CompressorType = 0 #0 for Shaft-driven, 1 for Electrical
+
+CompressorOn = "kei/trains/compressors/br_c40_compressor_1_loop.wav"
+CompressorOff = "kei/trains/compressors/br_c40_compressor_1_end.wav"
+
+DynamicsOn = ""
+DynamicsOff = ""
+
+PrimeOn = "kei/trains/engines/ee_12csvt/primer_loop.wav"
+PrimeOff = "kei/trains/engines/ee_12csvt/primer_end.wav"
+
+PrimerDuration = randint(10,15)
+
+SoundDurations = table()
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/0-1a.wav",number] = 297
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/0-1b.wav",number] = 2868
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/1-2a.wav",number] = 418
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/1-2b.wav",number] = 7608
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/2-3a.wav",number] = 519
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/up/2-3b.wav",number] = 4956
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/1-0a.wav",number] = 1087
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/1-0b.wav",number] = 8421
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/2-1a.wav",number] = 828
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/2-1b.wav",number] = 10753
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/3-2a.wav",number] = 584
+SoundDurations["kei/trains/engines/ee_16svt_mk2/transitions/down/3-2b.wav",number] = 3014
+SoundDurations["kei/trains/engines/ee_16svt_mk2/startup.wav",number] = 14920
+SoundDurations["kei/trains/engines/ee_16svt_mk2/shutdown.wav",number] = 14096
