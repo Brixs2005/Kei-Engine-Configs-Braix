@@ -1,0 +1,123 @@
+@name ptgamma/engines/ALCO_V16_251F
+#ENGINE CONFIG
+ENG_Version = "2.0.67"
+#For use in 3600hp ALCO Products locomotives (Century 636, M-636). Also usable in place of a 16-251E in 3000hp ALCO Products locomotives (Century 430, Century 630, M-630).
+EngineType = "ALCO 16-251F" #What is the name of the Prime Mover?
+
+Startup_Hi = "kei/trains/engines/alco_16-251f/startup.wav" #Startup Sound to put the engine in High (Normal) Idle.
+Startup_Lo = "" #Startup Sound to put the engine in Low Idle.
+Startup_Mode = 1 #0 for Low, 1 for High
+
+Shutdown_Hi = "kei/trains/engines/alco_16-251f/shutdown.wav" #Shutdown Sound from High Idle.
+Shutdown_Lo = "" #Shutdown Sound from Low Idle.
+Shutdown_Mode = 1 #0 for Low, 1 for High, 2 for Both as the situation demands it
+
+FuelSaverMode = 0 #If set to 1, the locomotive will go into and out of Low Idle as the reverser is moved in and out of Neutral
+FuelSaverDelay = 0 #Time, in seconds, for engine to fall into Low Idle, if used.
+
+TransitionToLow = "" #Transition sound for High to Low idle, if used.
+TransitionToHigh = "" #Transition sound for Low to High idle, if used.
+Idle_Low = "" #Sound for Low Idle, if used.
+
+
+NumEngineNotches = 8 #Number of Engine Notches, not counting idle.
+
+Notches = array(                                  #Sounds used for each Notch
+    "kei/trains/engines/alco_16-251f/idle.wav",
+    "kei/trains/engines/alco_16-251f/notch1.wav",
+    "kei/trains/engines/alco_16-251f/notch2.wav",
+    "kei/trains/engines/alco_16-251f/notch3.wav",
+    "kei/trains/engines/alco_16-251f/notch4.wav",
+    "kei/trains/engines/alco_16-251f/notch5.wav",
+    "kei/trains/engines/alco_16-251f/notch6.wav",
+    "kei/trains/engines/alco_16-251f/notch7.wav",
+    "kei/trains/engines/alco_16-251f/notch8.wav"
+)
+
+TransitionPath = "kei/trains/engines/alco_16-251f/transitions/"
+#---------------------0-1,1-2,2-3,3-4,4-5,5-6,6-7,7-8
+EngineBehavior = array(1,  0,  0,  0,  0,  0,  0,  0)
+#0 - A/B Notching
+#1 - Full Sweep
+#2 - Instant Change
+#3 - No Change
+#4 - Override (Full Sweep)
+                #0-1  1-2  2-3  3-4  4-5  5-6  6-7  7-8 
+UpDelays = array(0,1655,2485,4350,3784,3124,2950,1335)
+                  #8-7  7-6 6-5  5-4  4-3  3-2  2-1
+DownDelays = array(1151,965,1484,504,496,567,2614)
+
+UpOverrides = array(
+    "", #0-1
+    "", #1-2
+    "", #2-3
+    "", #3-4
+    "", #4-5
+    "", #5-6
+    "", #6-7
+    ""  #7-8
+)
+
+DownOverrides = array(
+    "", #8-7
+    "", #7-6
+    "", #6-5
+    "", #5-4
+    "", #4-3
+    "", #3-2
+    "", #2-1
+    ""  #1-0
+)
+
+StartupClagDelay = 5 #Time required to hold starter for engine to turn on successfully
+StartupClagDuration = 3 #Duration for starter smoke
+
+CompressorType = 0 #0 for Shaft-driven, 1 for Electrical
+
+CompressorOn = "lazpack/misc/compressors/wabco_3cdc_rs27/loop.wav"
+CompressorOff = "lazpack/misc/compressors/wabco_3cdc_rs27/end.wav"
+
+DynamicsOn = "lazpack/misc/dynamics_mliner_loop.wav"
+DynamicsOff = "lazpack/misc/dynamics_mliner_end.wav"
+
+PrimeOn = "kei/trains/engines/alco_16-251f/primer_loop.wav"
+PrimeOff = ""
+
+PrimerDuration = randint(10,15)
+
+SoundDurations = table()
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/0-1.wav",number] = 2674
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/1-2a.wav",number] = 1208
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/1-2b.wav",number] = 2897
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/2-3a.wav",number] = 668
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/2-3b.wav",number] = 3668
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/3-4a.wav",number] = 805
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/3-4b.wav",number] = 5394
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/4-5a.wav",number] = 832
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/4-5b.wav",number] = 5185
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/5-6a.wav",number] = 890
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/5-6b.wav",number] = 3887
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/6-7a.wav",number] = 651
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/6-7b.wav",number] = 3882
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/7-8a.wav",number] = 906
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/up/7-8b.wav",number] = 3370
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/1-0.wav",number] = 2717
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/2-1a.wav",number] = 962
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/2-1b.wav",number] = 6036
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/3-2a.wav",number] = 819
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/3-2b.wav",number] = 3379
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/4-3a.wav",number] = 1234
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/4-3b.wav",number] = 2333
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/5-4a.wav",number] = 934
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/5-4b.wav",number] = 1936
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/6-5a.wav",number] = 694
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/6-5b.wav",number] = 1976
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/7-6a.wav",number] = 612
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/7-6b.wav",number] = 1508
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/8-7a.wav",number] = 835
+SoundDurations["kei/trains/engines/alco_16-251f/transitions/down/8-7b.wav",number] = 1621
+SoundDurations["kei/trains/engines/alco_16-251f/startup.wav",number] = 9781
+SoundDurations["kei/trains/engines/alco_16-251f/startup_air_alco.wav",number] = 8286
+SoundDurations["kei/trains/engines/alco_16-251f/startup_air_mlw.wav",number] = 10170
+SoundDurations["kei/trains/engines/alco_16-251f/shutdown.wav",number] = 7821
+
