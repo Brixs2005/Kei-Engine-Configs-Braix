@@ -20,7 +20,7 @@ TransitionToHigh = "" #Transition sound for Low to High idle, if used.
 Idle_Low = "" #Sound for Low Idle, if used.
 
 
-NumEngineNotches = 8 #Number of Engine Notches, not counting idle.
+NumEngineNotches = 3 #Number of Engine Notches, not counting idle.
 
 Notches = array(
     "kei/trains/engines/ee_16svt_mk2/idle.wav", #Idle 

@@ -1,0 +1,120 @@
+@name ptgamma/engines/Sulzer_12LDA28C
+#ENGINE CONFIG
+ENG_Version = "2.0.67"
+#12-cylinder Sulzer LDA series engine. Used in British Class 47. Also can be used as a stand-in for Sulzer 12LDA28A and 12LDA28B, used in British Classes 44, 45 and 46.
+EngineType = "Sulzer 12LDA28C" #What is the name of the Prime Mover?
+
+Startup_Hi = "kei/trains/engines/sulzer_12lda28c/startup.wav" #Startup Sound to put the engine in High (Normal) Idle.
+Startup_Lo = "" #Startup Sound to put the engine in Low Idle.
+Startup_Mode = 1 #0 for Low, 1 for High
+
+Shutdown_Hi = "kei/trains/engines/sulzer_12lda28c/shutdown.wav" #Shutdown Sound from High Idle.
+Shutdown_Lo = "" #Shutdown Sound from Low Idle.
+Shutdown_Mode = 1 #0 for Low, 1 for High, 2 for Both as the situation demands it
+
+FuelSaverMode = 0 #If set to 1, the locomotive will go into and out of Low Idle as the reverser is moved in and out of Neutral
+FuelSaverDelay = 0 #Time, in seconds, for engine to fall into Low Idle, if used.
+
+TransitionToLow = "" #Transition sound for High to Low idle, if used.
+TransitionToHigh = "" #Transition sound for Low to High idle, if used.
+Idle_Low = "" #Sound for Low Idle, if used.
+
+
+NumEngineNotches = 8 #Number of Engine Notches, not counting idle.
+
+Notches = array(
+    "kei/trains/engines/sulzer_12lda28c/idle.wav", #Idle 
+    "kei/trains/engines/sulzer_12lda28c/notch1.wav", #Notch 1
+    "kei/trains/engines/sulzer_12lda28c/notch2.wav", #Notch 2
+    "kei/trains/engines/sulzer_12lda28c/notch3.wav", #Notch 3
+    "kei/trains/engines/sulzer_12lda28c/notch4.wav", #And so On
+    "kei/trains/engines/sulzer_12lda28c/notch5.wav",
+    "kei/trains/engines/sulzer_12lda28c/notch6.wav",
+    "kei/trains/engines/sulzer_12lda28c/notch7.wav",
+    "kei/trains/engines/sulzer_12lda28c/notch8.wav"
+)
+
+TransitionPath = "kei/trains/engines/sulzer_12lda28c/transitions/"
+#---------------------0-1,1-2,2-3,3-4,4-5,5-6,6-7,7-8
+EngineBehavior = array(1,  0,  0,  0,  0,  0, 0,  0)
+#0 - A/B Notching
+#1 - Full Sweep
+#2 - Instant Change
+#3 - No Change
+#4 - Override (Full Sweep)
+                #0-1  1-2  2-3  3-4  4-5  5-6  6-7  7-8 
+UpDelays = array(0,638,1033,1183,839,678,1846,2186) 
+                  #8-7  7-6  6-5  5-4  4-3  3-2  2-1 1-0
+DownDelays = array(477,501,539,498,481,805,689,0)
+
+UpOverrides = array(
+    "", #0-1
+    "", #1-2
+    "", #2-3
+    "", #3-4
+    "", #4-5
+    "", #5-6
+    "", #6-7
+    ""  #7-8
+)
+
+DownOverrides = array(
+    "", #8-7
+    "", #7-6
+    "", #6-5
+    "", #5-4
+    "", #4-3
+    "", #3-2
+    "", #2-1
+    ""  #1-0
+)
+
+StartupClagDelay = 2.6 #Time required to hold starter for engine to turn on successfully
+StartupClagDuration = 3 #Duration for starter smoke
+
+CompressorType = 0 #0 for Shaft-driven, 1 for Electrical
+
+CompressorOn = "kei/trains/compressors/br_c47_compressor_1_loop.wav"
+CompressorOff = "kei/trains/compressors/br_c47_compressor_1_end.wav"
+
+DynamicsOn = ""
+DynamicsOff = ""
+
+PrimeOn = "kei/trains/engines/ee_12csvt/primer_loop.wav"
+PrimeOff = "kei/trains/engines/ee_12csvt/primer_end.wav"
+
+PrimerDuration = randint(10,15)
+
+SoundDurations = table()
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/0-1.wav",number] = 3381
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/1-2a.wav",number] = 839
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/1-2b.wav",number] = 1967
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/2-3a.wav",number] = 926
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/2-3b.wav",number] = 2081
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/3-4a.wav",number] = 1002
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/3-4b.wav",number] = 2474
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/4-5a.wav",number] = 1025
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/4-5b.wav",number] = 2075
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/5-6a.wav",number] = 877
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/5-6b.wav",number] = 1797
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/6-7a.wav",number] = 975
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/6-7b.wav",number] = 3025
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/7-8a.wav",number] = 982
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/up/7-8b.wav",number] = 3553
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/1-0.wav",number] = 3954
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/2-1a.wav",number] = 1007
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/2-1b.wav",number] = 2754
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/3-2a.wav",number] = 923
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/3-2b.wav",number] = 1664
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/4-3a.wav",number] = 867
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/4-3b.wav",number] = 1271
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/5-4a.wav",number] = 891
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/5-4b.wav",number] = 1206
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/6-5a.wav",number] = 880
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/6-5b.wav",number] = 1314
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/7-6a.wav",number] = 726
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/7-6b.wav",number] = 1116
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/8-7a.wav",number] = 741
+SoundDurations["kei/trains/engines/sulzer_12lda28c/transitions/down/8-7b.wav",number] = 915
+SoundDurations["kei/trains/engines/sulzer_12lda28c/startup.wav",number] = 11862
+SoundDurations["kei/trains/engines/sulzer_12lda28c/shutdown.wav",number] = 11215
