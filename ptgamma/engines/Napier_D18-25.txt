@@ -1,0 +1,123 @@
+@name ptgamma/engines/Napier_D18-25
+#ENGINE CONFIG
+ENG_Version = "2.0.67"
+#18-cylinder 1650hp supercharged D. Napier & Son (owned by English Electric by time of production) Deltic engine.
+#Used in British class 55. Can be used as a stand-in for the D18-12 "E158" engines used in British Rail's DP1.
+EngineType = "Napier-EE Deltic D18-25" #What is the name of the Prime Mover?
+
+Startup_Hi = "kei/trains/engines/napier_d18-25/startup.wav" #Startup Sound to put the engine in High (Normal) Idle.
+Startup_Lo = "" #Startup Sound to put the engine in Low Idle.
+Startup_Mode = 1 #0 for Low, 1 for High
+
+Shutdown_Hi = "kei/trains/engines/napier_d18-25/shutdown.wav" #Shutdown Sound from High Idle.
+Shutdown_Lo = "" #Shutdown Sound from Low Idle.
+Shutdown_Mode = 1 #0 for Low, 1 for High, 2 for Both as the situation demands it
+
+FuelSaverMode = 0 #If set to 1, the locomotive will go into and out of Low Idle as the reverser is moved in and out of Neutral
+FuelSaverDelay = 0 #Time, in seconds, for engine to fall into Low Idle, if used.
+
+TransitionToLow = "" #Transition sound for High to Low idle, if used.
+TransitionToHigh = "" #Transition sound for Low to High idle, if used.
+Idle_Low = "" #Sound for Low Idle, if used.
+
+
+NumEngineNotches = 8 #Number of Engine Notches, not counting idle.
+
+Notches = array(
+    "kei/trains/engines/napier_d18-25/idle.wav", #Idle 
+    "kei/trains/engines/napier_d18-25/notch1.wav", #Notch 1
+    "kei/trains/engines/napier_d18-25/notch2.wav", #Notch 2
+    "kei/trains/engines/napier_d18-25/notch3.wav", #Notch 3
+    "kei/trains/engines/napier_d18-25/notch4.wav", #And so On
+    "kei/trains/engines/napier_d18-25/notch5.wav",
+    "kei/trains/engines/napier_d18-25/notch6.wav",
+    "kei/trains/engines/napier_d18-25/notch7.wav",
+    "kei/trains/engines/napier_d18-25/notch8.wav"
+)
+
+TransitionPath = "kei/trains/engines/napier_d18-25/transitions/"
+#---------------------0-1,1-2,2-3,3-4,4-5,5-6,6-7,7-8
+EngineBehavior = array(0,  0,  0,  0,  0,  0, 0,  0)
+#0 - A/B Notching
+#1 - Full Sweep
+#2 - Instant Change
+#3 - No Change
+#4 - Override (Full Sweep)
+                #0-1  1-2  2-3  3-4  4-5  5-6  6-7  7-8 
+UpDelays = array(1734,3479,1811,1680,2384,1127,2088,3133) 
+                  #8-7  7-6  6-5  5-4  4-3  3-2  2-1 1-0
+DownDelays = array(695,1022,1412,1424,913,1397,4357,4640)
+
+UpOverrides = array(
+    "", #0-1
+    "", #1-2
+    "", #2-3
+    "", #3-4
+    "", #4-5
+    "", #5-6
+    "", #6-7
+    ""  #7-8
+)
+
+DownOverrides = array(
+    "", #8-7
+    "", #7-6
+    "", #6-5
+    "", #5-4
+    "", #4-3
+    "", #3-2
+    "", #2-1
+    ""  #1-0
+)
+
+StartupClagDelay = 9 #Time required to hold starter for engine to turn on successfully
+StartupClagDuration = 2.5 #Duration for starter smoke
+
+CompressorType = 0 #0 for Shaft-driven, 1 for Electrical
+
+CompressorOn = "kei/trains/compressors/br_c55_compressor_1_loop.wav"
+CompressorOff = "kei/trains/compressors/br_c55_compressor_1_end.wav"
+
+DynamicsOn = ""
+DynamicsOff = ""
+
+PrimeOn = "kei/trains/engines/napier_d18-25/primer_loop.wav"
+PrimeOff = ""
+
+PrimerDuration = randint(6,10)
+
+SoundDurations = table()
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/0-1a.wav",number] = 249
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/0-1b.wav",number] = 3548
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/1-2a.wav",number] = 554
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/1-2b.wav",number] = 4933
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/2-3a.wav",number] = 591
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/2-3b.wav",number] = 2891
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/3-4a.wav",number] = 479
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/3-4b.wav",number] = 2828
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/4-5a.wav",number] = 610
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/4-5b.wav",number] = 4953
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/5-6a.wav",number] = 476
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/5-6b.wav",number] = 1957
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/6-7a.wav",number] = 565
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/6-7b.wav",number] = 2505
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/7-8a.wav",number] = 869
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/up/7-8b.wav",number] = 3658
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/1-0a.wav",number] = 558
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/1-0b.wav",number] = 6170
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/2-1a.wav",number] = 586
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/2-1b.wav",number] = 6339
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/3-2a.wav",number] = 382
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/3-2b.wav",number] = 2180
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/4-3a.wav",number] = 256
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/4-3b.wav",number] = 1475
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/5-4a.wav",number] = 282
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/5-4b.wav",number] = 1932
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/6-5a.wav",number] = 228
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/6-5b.wav",number] = 2047
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/7-6a.wav",number] = 360
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/7-6b.wav",number] = 1607
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/8-7a.wav",number] = 741
+SoundDurations["kei/trains/engines/napier_d18-25/transitions/down/8-7b.wav",number] = 1396
+SoundDurations["kei/trains/engines/napier_d18-25/startup.wav",number] = 14909
+SoundDurations["kei/trains/engines/napier_d18-25/shutdown.wav",number] = 17056
